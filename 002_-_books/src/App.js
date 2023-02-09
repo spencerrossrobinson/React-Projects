@@ -6,10 +6,13 @@ const App = () => {
 
   const handleCreateBook = (title) => {
     console.log("Need to add book with this title", title);
+    const updatedBooks = [...books, { id: 123, title }];
+    setBooks(updatedBooks);
   };
 
   return (
     <div>
+      {books.length}
       <BookCreate onCreate={handleCreateBook} />
     </div>
   );
