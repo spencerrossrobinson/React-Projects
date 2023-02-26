@@ -37,9 +37,10 @@ const Provider = ({ children }) => {
     setWines(updatedWines);
   };
   //function to create a wine card
-  const handleCreateWine = async (title) => {
+  const handleCreateWine = async (title, author) => {
     const response = await axios.post("http://localhost:3001/wines", {
       title,
+      author,
     });
     console.log(response);
     const updatedWines = [...wines, response.data];
