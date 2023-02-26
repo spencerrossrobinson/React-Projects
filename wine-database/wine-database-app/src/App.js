@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useEffect } from "react";
+import WineList from "./components/WineList";
+import useWinesContext from "./hooks/use-wines-context";
+import WineCreate from "./components/WineCreate";
 
-function App() {
+const App = () => {
+  //destructures the fetchWine function from the Context folder
+  const { fetchWines } = useWinesContext();
+
+  // loads fetch wine function from context on render
+  useEffect(() => {
+    fetchWines();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="">
+      <h1>Spencer's Wine List</h1>
+      <WineList />
+      <WineCreate />
     </div>
   );
-}
+};
 
 export default App;
