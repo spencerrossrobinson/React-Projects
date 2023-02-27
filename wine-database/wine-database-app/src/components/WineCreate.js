@@ -4,22 +4,33 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
 const WineCreate = () => {
-  //setting up the local state for the page that watches the Title of A Wine
+  const initialValues = {
+    name: "",
+    author: "",
+    varietal: "",
+    vintage: "",
+    notes: "",
+  };
+  //setting up the local state for the page that watches the Values of A Wine
   //working on submitting multiple values to our local object
-  const [title, setTitle] = useState("");
+  const [values, setValues] = useState(initialValues);
   // imports create wine function from Context
   const { handleCreateWine } = useWinesContext();
 
   //function that watches the input for changes
-  const onHandleChange = (event) => {
-    setTitle(event.target.value);
+  const onHandleChange = (e) => {
+    // setValues(event.target.value);
+    const { name, value } = e.target;
+    setValues({
+      ...values,
+      [name]: value,
+    });
   };
-  // function that will render the new title and photo when the form is submitted
+  // function that will render the new values and photo when the form is submitted
   const onHandleSubmit = (event) => {
     event.preventDefault();
-    handleCreateWine(title);
-    setTitle("");
-    console.log(setTitle);
+    handleCreateWine(values);
+    setValues(initialValues);
   };
 
   return (
@@ -27,11 +38,45 @@ const WineCreate = () => {
     <div className="">
       <h3>Add a Wine</h3>
       <Form onSubmit={onHandleSubmit}>
-        <Form.Label>Title</Form.Label>
+        <Form.Label>Name</Form.Label>
         <Form.Control
-          placehold="Enter a New Wine"
+          placeholder="Enter a New Wine"
           type="input"
-          value={title}
+          value={values.name}
+          name="name"
+          onChange={onHandleChange}
+        />
+        <Form.Label>Taster</Form.Label>
+        <Form.Control
+          placeholder="Name of Taster"
+          type="input"
+          value={values.author}
+          name="author"
+          onChange={onHandleChange}
+        />
+        <Form.Label>Varietal</Form.Label>
+        <Form.Control
+          placeholder="Enter Varietal"
+          type="input"
+          value={values.varietal}
+          name="varietal"
+          onChange={onHandleChange}
+        />
+        <Form.Label>Vintage</Form.Label>
+        <Form.Control
+          placeholder="Enter Vintage"
+          type="input"
+          value={values.vintage}
+          name="vintage"
+          onChange={onHandleChange}
+        />
+        <Form.Label>Tasting Notes</Form.Label>
+        <Form.Control
+          placeholder="Enter Notes"
+          as="textarea"
+          rows={4}
+          value={values.notes}
+          name="notes"
           onChange={onHandleChange}
         />
         <Button variant="success" type="submit">

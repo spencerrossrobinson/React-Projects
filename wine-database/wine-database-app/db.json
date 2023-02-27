@@ -1,8 +1,3 @@
 {
-  "wines": [
-    {
-      "title": "asdf",
-      "id": 1
-    }
-  ]
+  "wines": []
 }

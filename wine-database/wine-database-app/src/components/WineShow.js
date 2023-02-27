@@ -17,7 +17,15 @@ const WineShow = ({ wine }) => {
     setShowEdit(false);
   };
 
-  let content = <h3>{wine.title}</h3>;
+  let content = (
+    <div>
+      <h3>
+        {wine.values.name} - {wine.values.varietal} - {wine.values.vintage}
+      </h3>
+      <h6>{wine.values.author}</h6>
+      <div>{wine.values.notes}</div>
+    </div>
+  );
   if (showEdit) {
     content = <WineEdit wine={wine} onSubmit={handleSubmit} />;
   }
