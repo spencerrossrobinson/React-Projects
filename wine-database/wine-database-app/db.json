@@ -1,3 +1,14 @@
 {
-  "wines": []
+  "wines": [
+    {
+      "values": {
+        "name": "Arpepe",
+        "author": "Jenissa",
+        "varietal": "Nebbiolo",
+        "vintage": "2018",
+        "notes": "this wine tastes like cranberry asshole"
+      },
+      "id": 1
+    }
+  ]
 }

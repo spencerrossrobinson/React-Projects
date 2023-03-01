@@ -3,7 +3,7 @@ import useWinesContext from "../hooks/use-wines-context";
 import Button from "react-bootstrap/Button";
 
 const WineEdit = ({ wine, onSubmit }) => {
-  const [title, setTitle] = useState(wine.title);
+  const [title, setTitle] = useState(wine.values);
   const { editWineById } = useWinesContext();
   console.log(title);
 

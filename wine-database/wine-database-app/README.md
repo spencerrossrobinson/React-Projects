@@ -1,3 +1,5 @@
+#App for a wine database that renders all the wines tasted by the DGMC group witht asting notes, wine info, and the ability to search, add and create new wines
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
